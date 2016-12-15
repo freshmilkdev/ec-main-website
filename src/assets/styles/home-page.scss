@@ -1,0 +1,120 @@
+@import "base/variables";
+@import "base/fonts";
+@import "base/mixins";
+@import "base/media-queries";
+
+h1.lead-title {
+  padding: 100px 0;
+  @include font-myriad-bold($lead-title-font);
+
+  .row {
+    line-height: 0.9;
+  }
+  .consultants {
+    text-align: right;
+    line-height: 1.1;
+    & :first-child {
+      @include font-myriad-regular($lead-title-font - 46px);
+    }
+    & :last-child {
+      @include font-myriad-regular($lead-title-font - 48px);
+    }
+  }
+
+  .cloud {
+    @include font-myriad-bold($lead-title-font - 17px);
+  }
+
+  .leadership {
+    @include font-myriad-regular($lead-title-font - 11px);
+    padding-bottom: 18px;
+    background: url("../images/custom-underscore.png") bottom center no-repeat;
+    background-size: contain;
+  }
+
+}
+
+.cards-wrapper {
+  background: url("../images/bg-wheels.png") center right no-repeat;
+}
+
+.cards {
+  padding-top: 30px;
+  display: flex;
+  justify-content: center; /* horizontal centering */
+
+  @include tablet {
+    display: block;
+  }
+  .card {
+    flex-grow: 0;
+    flex-basis: 28%;
+    @include card;
+    .out-link {
+      position: absolute;
+      bottom: 14px;
+      right: 20px;
+      a {
+        @include font-myriad-italic;
+      }
+    }
+
+  }
+
+  & > .card:nth-child(1) {
+    z-index: 20;
+    background-color: $color-blue;
+    line-height: 1;
+
+    //triangle
+    &:after {
+      border-color: transparent darken($color-blue, 10%) $color-white transparent;
+    }
+
+    & h3 :nth-child(2) {
+      @include font-myriad-light(26px);
+      letter-spacing: 1px;
+    }
+
+  }
+
+  & > .card:nth-child(2) {
+    z-index: 10;
+    background-color: $color-light-blue;
+    margin-left: 20px;
+    margin-right: 20px;
+    //triangle
+    &:after {
+      border-color: transparent darken($color-light-blue, 10%) $color-white transparent;
+    }
+
+    @include tablet {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    & .card-header {
+      @include font-myriad-bold(28px);
+    }
+
+  }
+
+  & > .card:nth-child(3) {
+    background-color: $color-purple;
+    line-height: 1;
+
+    //triangle
+    &:after {
+      border-color: transparent darken($color-purple, 10%) $color-white transparent;
+    }
+
+    & h3 :nth-child(1) {
+      display: block;
+      @include font-myriad-bold(38px);
+    }
+
+    & .card-icon {
+      left: -26px;
+    }
+  }
+}

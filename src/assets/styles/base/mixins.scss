@@ -1,0 +1,122 @@
+@import "fonts";
+@import "variables";
+@import "media-queries";
+@mixin font-myriad-regular($size: 14px, $color: $color-white) {
+  font-family: "MyriadProRegular", sans-serif;
+  font-size: $size;
+  color: $color;
+  text-decoration: none;
+}
+
+@mixin font-myriad-bold($size: 14px, $color: $color-white) {
+  font-family: "MyriadProBold", sans-serif;
+  font-size: $size;
+  color: $color;
+  text-decoration: none;
+}
+
+@mixin font-myriad-light($size: 14px, $color: $color-white) {
+  font-family: "MyriadProLight", sans-serif;
+  font-size: $size;
+  color: $color;
+  text-decoration: none;
+}
+
+@mixin font-myriad-italic($size: 14px, $color: $color-white) {
+  font-family: "MyriadProItalic", sans-serif;
+  font-size: $size;
+  color: $color;
+  text-decoration: none;
+}
+
+@mixin triangle-corner-left-bottom() {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 36px 36px 0;
+}
+
+
+@mixin card($header-offset: 63px, $header-font-size: 38px, $icon-offset: -46px, $content-offset-top:10px) {
+
+  @include font-myriad-regular;
+  box-shadow: inset 0 10px 10px 0 rgba(50, 50, 50, 0.5);
+  text-align: left;
+  padding: 30px 0;
+  margin-bottom: 20px;
+  position: relative;
+
+  &:after {
+    @include triangle-corner-left-bottom;
+  }
+
+  .card-header {
+    padding-left: $header-offset;
+    position: relative;
+    @include font-myriad-bold($header-font-size);
+    & h3 img {
+      display: block;
+    }
+    & .card-icon {
+      position: absolute;
+      top: 0;
+      left: $icon-offset;
+    }
+  }
+
+  p {
+    line-height: 1.3;
+    padding: $content-offset-top 30px 15px;
+  }
+
+}
+
+@mixin ribbon($side-width: 20px, $bg-color: $color-blue, $color: $color-white, $font-size: 18px) {
+  padding: 20px 0;
+  background-color: $bg-color;
+  @include font-myriad-regular($font-size, $color);
+  position: relative;
+  @include tablet{
+    box-shadow: 0 7px 7px 0 rgba(0, 0, 0, 0.5);
+  }
+  &:before {
+    display: flex;
+    content: '\25CF';
+    font-size: 18px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: -$side-width;
+    top: 0;
+    width: $side-width;
+    height: 100%;
+    background-color: $bg-color;
+  }
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: -$side-width;
+    bottom: -$side-width;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 $side-width $side-width 0;
+    border-color: transparent darken($bg-color, 10%) transparent transparent;
+  }
+}
+
+@mixin service-image($url){
+  &:after {
+    content: '';
+    display: block;
+    background: url($url) no-repeat center;
+    background-size: cover;
+    height: 100%;
+  }
+}

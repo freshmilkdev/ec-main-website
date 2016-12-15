@@ -1,0 +1,30 @@
+$phone-sm-width: 320px;
+$phone-width: 640px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+/*==========  Non-Mobile First Method  ==========*/
+
+@mixin phone-sm {
+  @media (max-width: #{$phone-sm-width}) {
+    @content;
+  }
+}
+
+@mixin phone {
+  @media (max-width: #{$phone-width}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$tablet-width}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (max-width: #{$desktop-width}) {
+    @content;
+  }
+}
