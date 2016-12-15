@@ -9,9 +9,9 @@
     @include card(116px, 38px, -33px, 30px);
 
     .card-header {
-      @include font-myriad-bold(38px);
+      @include font-source-myriad(38px, $color-white, 'Bold');
       h3 :last-child {
-        @include font-myriad-regular(24px);
+        @include font-source-myriad(24px);
       }
     }
     & > img {
@@ -31,7 +31,7 @@
       }
     }
     p {
-      @include font-myriad-italic();
+      @include font-source-myriad(14px,$color-white,'Italic');
     }
   }
 }
@@ -91,7 +91,7 @@
   }
 
   p {
-    @include font-myriad-regular(16px, #000);
+    @include font-source-myriad(16px, #000);
     text-align: left;
     padding-left: 20px;
     line-height: 1.4;

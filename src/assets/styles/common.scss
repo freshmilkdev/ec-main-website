@@ -27,7 +27,7 @@ header {
   }
 
   h2 {
-    @include font-myriad-light(26px);
+    @include font-source-myriad(26px, $color-white, 'Light');
     text-align: center;
     padding: 30px 0;
     background: rgba($color-deep-dark-blue, 0.7);
@@ -82,7 +82,7 @@ header {
     flex-grow: 1;
     text-align: center;
     padding-top: 42px;
-    @include font-myriad-regular;
+    @include font-source-myriad;
 
     @include tablet{
       display: block;
@@ -117,7 +117,7 @@ footer {
   background-color: $color-light-blue;
 
   div, a {
-    @include font-myriad-regular;
+    @include font-source-myriad;
   }
 
   .social-icons a {

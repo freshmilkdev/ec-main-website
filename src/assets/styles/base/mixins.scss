@@ -1,33 +1,14 @@
 @import "fonts";
 @import "variables";
 @import "media-queries";
-@mixin font-myriad-regular($size: 14px, $color: $color-white) {
-  font-family: "MyriadProRegular", sans-serif;
-  font-size: $size;
+
+@mixin font-source-myriad($size: 14px, $color: $color-white, $type: "Regular") {
   color: $color;
   text-decoration: none;
+  font-size: $size;
+  font-family: "MyriadPro#{$type}", sans-serif;
 }
 
-@mixin font-myriad-bold($size: 14px, $color: $color-white) {
-  font-family: "MyriadProBold", sans-serif;
-  font-size: $size;
-  color: $color;
-  text-decoration: none;
-}
-
-@mixin font-myriad-light($size: 14px, $color: $color-white) {
-  font-family: "MyriadProLight", sans-serif;
-  font-size: $size;
-  color: $color;
-  text-decoration: none;
-}
-
-@mixin font-myriad-italic($size: 14px, $color: $color-white) {
-  font-family: "MyriadProItalic", sans-serif;
-  font-size: $size;
-  color: $color;
-  text-decoration: none;
-}
 
 @mixin triangle-corner-left-bottom() {
   content: '';
@@ -41,10 +22,9 @@
   border-width: 0 36px 36px 0;
 }
 
-
 @mixin card($header-offset: 63px, $header-font-size: 38px, $icon-offset: -46px, $content-offset-top:10px) {
 
-  @include font-myriad-regular;
+  @include font-source-myriad;
   box-shadow: inset 0 10px 10px 0 rgba(50, 50, 50, 0.5);
   text-align: left;
   padding: 30px 0;
@@ -58,7 +38,7 @@
   .card-header {
     padding-left: $header-offset;
     position: relative;
-    @include font-myriad-bold($header-font-size);
+    @include font-source-myriad($header-font-size, $color-white, 'Bold');
     & h3 img {
       display: block;
     }
@@ -79,9 +59,9 @@
 @mixin ribbon($side-width: 20px, $bg-color: $color-blue, $color: $color-white, $font-size: 18px) {
   padding: 20px 0;
   background-color: $bg-color;
-  @include font-myriad-regular($font-size, $color);
+  @include font-source-myriad($font-size, $color);
   position: relative;
-  @include tablet{
+  @include tablet {
     box-shadow: 0 7px 7px 0 rgba(0, 0, 0, 0.5);
   }
   &:before {
@@ -111,7 +91,7 @@
   }
 }
 
-@mixin service-image($url){
+@mixin service-image($url) {
   &:after {
     content: '';
     display: block;
