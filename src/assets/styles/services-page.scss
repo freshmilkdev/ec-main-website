@@ -3,101 +3,20 @@
 @import "base/mixins";
 @import "base/media-queries";
 
-.wide-cards {
-  padding: 30px 0;
-  .card {
-    @include card(116px, 38px, -33px, 30px);
-
-    .card-header {
-      @include font-source-myriad(38px, $color-white, 'Bold');
-      h3 :last-child {
-        @include font-source-myriad(24px);
-      }
-    }
-    & > img {
-      position: absolute;
-      right: 30px;
-    }
-    &:nth-of-type(1) {
-      background-color: $color-blue;
-      &:after {
-        border-color: transparent darken($color-blue, 10%) $color-white transparent;
-      }
-    }
-    &:nth-of-type(2) {
-      background-color: $color-light-blue;
-      &:after {
-        border-color: transparent darken($color-light-blue, 10%) $color-white transparent;
-      }
-    }
-    p {
-      @include font-source-myriad(14px,$color-white,'Italic');
-    }
-  }
-}
-
-.services {
-  background: url("../images/bg-services.png") no-repeat center;
-  background-size: cover;
-}
-
 .service {
-  margin-bottom: 30px;
-
-  & > :first-child {
-    flex-direction: column;
-    display: flex;
-    align-items: stretch;
-    box-shadow: 0 7px 7px 0 rgba(0, 0, 0, 0.5);
-    @include tablet{
-      box-shadow: none;
-    }
+  &:nth-of-type(1) > div:first-child {
+    @include ribbon-image("../images/consultancy.png");
   }
 
-  & > div {
-    padding: 0;
-    @include tablet {
-      padding-left: 20px;
-    }
-  }
-  & > .consultancy {
-    @include service-image("../images/consultancy.png");
-
-    & .ribbon {
-      @include ribbon(20px);
-    }
+  &:nth-of-type(2) > div:first-child {
+    @include ribbon-image("../images/perfomance.png");
   }
 
-  & > .performance {
-    @include service-image("../images/perfomance.png");
-    & .ribbon {
-      @include ribbon(20px, $color-light-blue);
-    }
+  &:nth-of-type(3) > div:first-child {
+    @include ribbon-image("../images/migration.png");
   }
 
-  & > .migration {
-    @include service-image("../images/migration.png");
-    & .ribbon {
-      @include ribbon(20px, $color-light-purple);
-    }
-  }
-
-
-  & > .training {
-    @include service-image("../images/training.png");
-    & .ribbon {
-      @include ribbon(20px, $color-light-grey, $color-blue);
-    }
-  }
-
-  p {
-    @include font-source-myriad(16px, #000);
-    text-align: left;
-    padding-left: 20px;
-    line-height: 1.4;
-    @include tablet {
-      padding: 20px 20px 0;
-      font-size: 18px;
-    }
+  &:nth-of-type(4) > div:first-child {
+    @include ribbon-image("../images/training.png");
   }
 }

@@ -6,8 +6,8 @@ import fs from 'fs';
  import colors from 'colors';
 
 /*eslint-disable no-console */
-const dir = 'dist';
-fs.readdir(dir, (err, files) => {
+const srcDir = 'src';
+fs.readdir(srcDir, (err, files) => {
     files
         .filter((file) => file.substr(-5) === '.html')
         .forEach(file => {
@@ -16,7 +16,7 @@ fs.readdir(dir, (err, files) => {
 
 });
 const readFile = (file) =>{
-    const filePath = dir + '/' + file;
+    const filePath = srcDir + '/' + file;
     fs.readFile(filePath, 'utf8', (err, markup) => {
         if (err) {
             return console.log(err);
@@ -27,7 +27,7 @@ const readFile = (file) =>{
         // since a separate spreadsheet is only utilized for the production build, need to dynamically add this here.
         $('head').prepend('<link rel="stylesheet" href="bundle.css">');
 
-        fs.writeFile(filePath, $.html(), 'utf8', function (err) {
+        fs.writeFile('dist/' + file, $.html(), 'utf8', function (err) {
             if (err) {
                 return console.log(err);
             }

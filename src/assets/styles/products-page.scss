@@ -1,0 +1,24 @@
+@import "base/variables";
+@import "base/fonts";
+@import "base/mixins";
+@import "base/media-queries";
+
+.product {
+  @include section-with-ribbon;
+  & ul {
+    list-style-type: square;
+    padding-left: 40px;
+    @include font-source-myriad(16px, #000);
+    text-align: left;
+    & a {
+      @include font-source-myriad(16px, $color-blue);
+    }
+  }
+  &:nth-of-type(1) > div:first-child {
+    @include ribbon-image("../images/consultancy.png");
+  }
+
+  &:nth-of-type(3) > div:first-child {
+    @include ribbon-image("../images/perfomance.png");
+  }
+}

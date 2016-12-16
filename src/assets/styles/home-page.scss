@@ -63,13 +63,7 @@ h1.lead-title {
 
   & > .card:nth-child(1) {
     z-index: 20;
-    background-color: $color-blue;
     line-height: 1;
-
-    //triangle
-    &:after {
-      border-color: transparent darken($color-blue, 10%) $color-white transparent;
-    }
 
     & h3 :nth-child(2) {
       @include font-source-myriad(26px, $color-white, 'Light');
@@ -80,14 +74,8 @@ h1.lead-title {
 
   & > .card:nth-child(2) {
     z-index: 10;
-    background-color: $color-light-blue;
     margin-left: 20px;
     margin-right: 20px;
-    //triangle
-    &:after {
-      border-color: transparent darken($color-light-blue, 10%) $color-white transparent;
-    }
-
     @include tablet {
       margin-left: 0;
       margin-right: 0;
@@ -100,14 +88,7 @@ h1.lead-title {
   }
 
   & > .card:nth-child(3) {
-    background-color: $color-purple;
     line-height: 1;
-
-    //triangle
-    &:after {
-      border-color: transparent darken($color-purple, 10%) $color-white transparent;
-    }
-
     & h3 :nth-child(1) {
       display: block;
       @include font-source-myriad(38px, $color-white, 'Bold');
